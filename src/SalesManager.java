@@ -1,13 +1,13 @@
 public class SalesManager {
-    protected int[] sales;
+    protected long[] sales;
 
-    public SalesManager(int[] sales) {
+    public SalesManager(long[] sales) {
         this.sales = sales;
     }
 
-    public int max() {
-        int max = -1;
-        for (int sale : sales) {
+    public long max() {
+        long max = -1;
+        for (long sale : sales) {
             if (sale > max) {
                 max = sale;
             }
@@ -15,9 +15,9 @@ public class SalesManager {
         return max;
     }
 
-    public int min() {
-        int min = sales[0];
-        for (int sale : sales) {
+    public long min() {
+        long min = sales[0];
+        for (long sale : sales) {
             if (sale < min) {
                 min = sale;
             }
@@ -25,12 +25,12 @@ public class SalesManager {
         return min;
     }
 
-    public int croppedAverage() {
-        int result = 0;
-        int resultMax = max();
-        int resultMin = min();
+    public long croppedAverage() {
+        long result = 0;
+        long resultMax = max();
+        long resultMin = min();
         int count = 0;
-        for (int sale : sales) {
+        for (long sale : sales) {
             if (sale != resultMax && sale != resultMin) {
                 result += sale;
                 count++;
