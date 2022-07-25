@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class SalesManager {
     protected long[] sales;
 
@@ -15,28 +17,14 @@ public class SalesManager {
         return max;
     }
 
-    public long min() {
-        long min = sales[0];
-        for (long sale : sales) {
-            if (sale < min) {
-                min = sale;
-            }
-        }
-        return min;
-    }
-
     public long croppedAverage() {
+        Arrays.sort(sales);
         long result = 0;
-        long resultMax = max();
-        long resultMin = min();
-        int count = 0;
-        for (long sale : sales) {
-            if (sale != resultMax && sale != resultMin) {
-                result += sale;
-                count++;
-            }
+        long count = 0;
+        for (int i = 1; i < sales.length - 1; i++) {
+            result += sales[i];
+            count++;
         }
-
         return result / count;
     }
 }
